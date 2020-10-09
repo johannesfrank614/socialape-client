@@ -17,6 +17,8 @@ import store from './redux/store'
 import Navbar from './components/Navbar';
 import AuthRoute from './util/AuthRoute'
 
+import Footer from './components/Footer';
+
 // utils
 import themeFile from './util/theme'
 
@@ -24,6 +26,7 @@ import themeFile from './util/theme'
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
+import testpage from './pages/testpage';
 
 const theme = createMuiTheme(themeFile);
 
@@ -50,6 +53,7 @@ class App extends Component{
             <div className="container">            
               <Switch>
                 <Route exact path="/" component={home} />
+                <Route exact path="/testpage" component={testpage} />
                 <AuthRoute 
                   exact path="/login" 
                   component={login} 
@@ -60,6 +64,7 @@ class App extends Component{
                   authenticated={authenticated}/>
               </Switch>
             </div>
+            <Footer />
           </Router>        
         </Provider>   
       </MuiThemeProvider>
