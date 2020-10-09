@@ -130,6 +130,8 @@ const mapActionsToProps = {
 
 export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(login))
 
+// ich verstehe das so: mapStateToProps fügt and die props der component login werte aus dem store an. 
+// die state placeholder variable steht dabei für den store
 
 // This is for testing
 // more testing

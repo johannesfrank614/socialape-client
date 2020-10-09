@@ -1,26 +1,25 @@
+//React
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
-//import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+
+//MUI
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import jwtDecode from 'jwt-decode'
 
 
 //Redux
-
 import { Provider } from 'react-redux'
 import store from './redux/store'
 
 //Components
-
 import Navbar from './components/Navbar';
 import AuthRoute from './util/AuthRoute'
-
 import Footer from './components/Footer';
 
 // utils
 import themeFile from './util/theme'
+import './App.css';
 
 //Pages
 import home from './pages/home';
@@ -28,9 +27,13 @@ import login from './pages/login';
 import signup from './pages/signup';
 import testpage from './pages/testpage';
 
+
+
+
 const theme = createMuiTheme(themeFile);
 
 let authenticated
+
 const token = localStorage.FBIdToken
 
 if(token){
@@ -41,6 +44,8 @@ if(token){
   } else {
     authenticated = true
   }
+} else {
+  window.location.href = '/login'
 }
 
 class App extends Component{
