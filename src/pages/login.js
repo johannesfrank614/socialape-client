@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
 import AppIcon from '../images/icon.jpeg'
-import axios from 'axios'
 import { Link } from 'react-router-dom';
+
+
 //MUI Stuff
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -29,7 +30,11 @@ class login extends Component {
             errors: {}
         }        
     }
-
+    componentWillReceiveProps(nextProps){
+        if(nextProps.UI.errors) {
+            this.setState({ errors: nextProps.UI.errors })
+        }
+    }
     handleSubmit = (event) =>{
         event.preventDefault()
 
@@ -115,8 +120,8 @@ class login extends Component {
 login.propTypes = {
     classes: PropTypes.object.isRequired,
     loginUser: PropTypes.func.isRequired,
-    user: PropTypes.func.isRequired,
-    UI: PropTypes.func.isRequired,
+    user: PropTypes.object.isRequired,
+    UI: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => ({
