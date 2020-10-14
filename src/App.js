@@ -15,7 +15,7 @@ import { SET_AUTHENTICATED }  from './redux/types'
 import { logoutUser, getUserData } from './redux/actions/userActions'
 
 //Components
-
+import user from './pages/user'
 import Navbar from './components/layout/Navbar';
 import AuthRoute from './util/AuthRoute'
 
@@ -26,6 +26,9 @@ import themeFile from './util/theme'
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
+
+
+axios.defaults.baseURL = 'https://europe-west1-socialape-cfc44.cloudfunctions.net/api'
 
 const theme = createMuiTheme(themeFile);
 
@@ -65,6 +68,8 @@ class App extends Component{
                   path="/signup" 
                   component={signup} 
                 />
+                <Route exact path="/users/:handle" component={user}/>
+                <Route exact path="/users/:handle/scream/:screamId" component={user}/>
               </Switch>
             </div>
           </Router>        

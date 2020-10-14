@@ -46,8 +46,9 @@ class CommentForm extends Component {
                         name="body"
                         type="text"
                         label="Comment on scream"
-                        error={ErrorSharp.comment ? true : false}
-                        helperText={errors.comment}
+                        /*Uses errors.comment in tutorial. But in my backend, error is printed to .error*/ 
+                        error={errors.error ? true : false}
+                        helperText={errors.error}
                         value={this.state.body}
                         onChange={this.handleChange}
                         fullWidth

@@ -80,12 +80,12 @@ class Scream extends Component {
                     <Typography variant="body2" color="textSecondary">{dayjs(createdAt).fromNow()}</Typography>
                     <Typography variant="body1">{body}</Typography>
                     <LikeButton screamId={screamId}/>
-                    <span>{likeCount} Likes</span>
+                    <span> {likeCount} Likes</span>
                     <MyButton tip="comments">
                         <ChatIcon color="primary" />
                     </MyButton>
                     <span>{commentCount} comments</span>
-                    <ScreamDialog screamId={screamId} userHandle={userHandle}/>
+                    <ScreamDialog screamId={screamId} userHandle={userHandle} openDialog={this.props.openDialog}/>
                 </CardContent>
             </Card>
         )
@@ -95,7 +95,8 @@ class Scream extends Component {
 Scream.propTypes = {
     user:PropTypes.object.isRequired,
     scream:PropTypes.object.isRequired,
-    classes:PropTypes.object.isRequired
+    classes:PropTypes.object.isRequired,
+    openDialog: PropTypes.bool
 }
 
 const mapStateToProps = state => ({
